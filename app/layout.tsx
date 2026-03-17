@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { Nunito } from "next/font/google"
 import "./globals.css"
 import { NotificationPrompt } from "@/components/notification-prompt"
-import { AnalyticsDashboard } from "@/components/analytics-dashboard"
+import { SimpleAnalyticsButton } from "@/components/simple-analytics-button"
 
 const nunito = Nunito({ subsets: ["latin"], variable: "--font-nunito" })
 
@@ -63,7 +63,7 @@ export default function RootLayout({
       <body className={`${nunito.variable} font-sans antialiased`}>
         {children}
         <NotificationPrompt />
-        <AnalyticsDashboard />
+        <SimpleAnalyticsButton />
       </body>
     </html>
   )
