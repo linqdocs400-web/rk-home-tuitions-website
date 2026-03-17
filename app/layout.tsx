@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Nunito } from "next/font/google"
 import "./globals.css"
 import { NotificationPrompt } from "@/components/notification-prompt"
+import { AnalyticsDashboard } from "@/components/analytics-dashboard"
 
 const nunito = Nunito({ subsets: ["latin"], variable: "--font-nunito" })
 
@@ -41,10 +42,28 @@ export default function RootLayout({
             `
           }}
         />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-XXXXXXXXXX', {
+                page_location: window.location.href,
+                page_title: document.title,
+              });
+            `
+          }}
+        />
       </head>
       <body className={`${nunito.variable} font-sans antialiased`}>
         {children}
         <NotificationPrompt />
+        <AnalyticsDashboard />
       </body>
     </html>
   )
