@@ -1,3 +1,5 @@
+import { NotificationDropdown } from '@/components/notification-dropdown'
+
 export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-card/80 backdrop-blur-md border-b border-border transition-all duration-300 header-shrink">
@@ -37,11 +39,23 @@ export function Header() {
           >
             Tutors
           </a>
+          <NotificationDropdown />
           <a
             href="tel:9494823941"
             className="bg-primary text-primary-foreground px-4 py-2 rounded-lg font-medium hover:opacity-90 transition-opacity"
           >
             Call Now
+          </a>
+        </nav>
+
+        {/* Mobile Nav */}
+        <nav className="flex md:hidden items-center gap-3">
+          <NotificationDropdown />
+          <a
+            href="tel:9494823941"
+            className="bg-primary text-primary-foreground px-3 py-2 rounded-lg font-medium hover:opacity-90 transition-opacity text-sm"
+          >
+            Call
           </a>
         </nav>
       </div>
